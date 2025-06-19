@@ -3,14 +3,15 @@ let currentResult = 0
 let calculationDescription = '';
 
 function addNumbers() {
+    const enteredNumber = userInput.value;
     if (calculationDescription === '') {
-        calculationDescription = userInput.value;
+        calculationDescription = enteredNumber;
     }
     else {
-        calculationDescription = `${calculationDescription} + ${userInput.value}`;
+        calculationDescription = `${calculationDescription} + ${enteredNumber}`;
     }
     
-    currentResult = currentResult + parseInt(userInput.value);
+    currentResult = currentResult + parseInt(enteredNumber);
     outputResult(currentResult, calculationDescription);
 }
 
