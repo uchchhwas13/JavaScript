@@ -19,8 +19,10 @@ const startGame = function () {
     const playerSelection = getPlayerChoice();
     console.log(`Player's choice: ${playerSelection}`);
     const computerChoice = getComputerChoice();
+    console.log(`Computer's choice: ${computerChoice}`);
     const winner = getWinner(computerChoice, playerSelection);
     console.log(winner);
+    gameIsRunning = false;
 }
 
 const getPlayerChoice = function () {
@@ -44,6 +46,7 @@ const getWinner = function (computerChoice, playerChoice) {
         return RESULT_COMPUTER_WINS;
     } else {
         return RESULT_PLAYER_WINS;
+    }
 }
 
 
