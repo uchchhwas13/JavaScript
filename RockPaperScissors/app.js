@@ -18,6 +18,9 @@ const startGame = function () {
     console.log('Game started!');
     const playerSelection = getPlayerChoice();
     console.log(`Player's choice: ${playerSelection}`);
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(computerChoice, playerSelection);
+    console.log(winner);
 }
 
 const getPlayerChoice = function () {
@@ -38,9 +41,9 @@ const getWinner = function (computerChoice, playerChoice) {
     } else if ((computerChoice === ROCK && playerChoice === SCISSORS) ||
                (computerChoice === PAPER && playerChoice === ROCK) ||
                (computerChoice === SCISSORS && playerChoice === PAPER)) {
-        return 'Computer wins!';
+        return RESULT_COMPUTER_WINS;
     } else {
-        return 'Player wins!';
+        return RESULT_PLAYER_WINS;
 }
 
 
