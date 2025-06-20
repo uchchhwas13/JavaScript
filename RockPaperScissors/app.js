@@ -21,7 +21,9 @@ const startGame = () => {
     const computerChoice = getComputerChoice();
     console.log(`Computer's choice: ${computerChoice}`);
     const winner = getWinner(computerChoice, playerSelection);
+    const msg = `You picked ${playerSelection}, computer picked ${computerChoice}. Result is ${winner}!`;
     console.log(winner);
+    alert(msg);
     gameIsRunning = false;
 }
 
