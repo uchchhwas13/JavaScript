@@ -3,24 +3,36 @@ const searchBtn = document.getElementById('search-btn');
 
 const movies = [];
 
-const renderMovies = () => {
-    const movieList = document.getElementById('movie-list');
-    movieList.innerHTML = '';
+const renderMovies = (filter = '') => {
+  const movieList = document.getElementById('movie-list');
 
-    if (movies.length === 0) {
-        movieList.classList.remove('visible');
-        return;
-    } else {
-        movieList.classList.add('visible');
+  if (movies.length === 0) {
+    movieList.classList.remove('visible');
+    return;
+  } else {
+    movieList.classList.add('visible');
+  }
+  movieList.innerHTML = '';
+
+  const filteredMovies = !filter
+    ? movies
+    : movies.filter(movie => movie.info.title.includes(filter));
+
+  filteredMovies.forEach(movie => {
+    const movieEl = document.createElement('li');
+    const { info, ...otherProps } = movie;
+    console.log(otherProps);
+    const { title: movieTitle } = info;
+    let text = movieTitle + ' - ';
+    for (const key in info) {
+      if (key !== 'title') {
+        text = text + `${key}: ${info[key]}`;
+      }
     }
-
-    movieList.innerHTML = '';
-    movies.forEach((movie) => {
-        const movieEl = document.createElement('li');
-        movieEl.textContent = movie.info.title;
-        movieList.append(movieEl);
-    });
-}
+    movieEl.textContent = text;
+    movieList.append(movieEl);
+  });
+};
 
 
 const addMoviehandler = () => {
