@@ -55,4 +55,12 @@ const addMoviehandler = () => {
     renderMovies();
 }
 
+const searchMovieHandler = () => {
+    console.log('Searching for movies...');
+    console.log(this);
+    const filterTerm = document.getElementById('filter-title').value;
+    renderMovies(filterTerm);
+};
+
 addMovieBtn.addEventListener('click', addMoviehandler);
+searchBtn.addEventListener('click', searchMovieHandler);
