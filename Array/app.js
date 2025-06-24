@@ -116,3 +116,12 @@ console.log(transformedData);
 const nameFragments = ['Max', 'Schwarz'];
 const name = nameFragments.join(' ');
 console.log(name);
+
+const ids = new Set([1, 2, 3]);
+
+let person = {name: 'Max'};
+
+const persons = new WeakSet();
+persons.add(person);
+persons.add(person);
+console.log(persons) ;
