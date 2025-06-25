@@ -15,17 +15,18 @@ class DOMHelper {
 class Tooltip{}
 
 class ProjectItem{
-    constructor(id, updateProjectListsFunction) {
+    constructor(id, updateProjectListsFunction, type) {
         this.id = id;
         this.updateProjectListsHandler = updateProjectListsFunction;
         this.connectMoreInfoButton();
-        this.connectSwitchButton();
+        this.connectSwitchButton(type);
     }
 
-    connectSwitchButton() {
+    connectSwitchButton(type) {
         const projectItemElement = document.getElementById(this.id);
         let switchBtn = projectItemElement.querySelector('button:last-of-type');
         switchBtn = DOMHelper.clearEventListeners(switchBtn);
+        switchBtn.textContent = type === 'active' ? 'Finish' : 'Activate';
         switchBtn.addEventListener(
             'click', 
             this.updateProjectListsHandler.bind(null, this.id)
@@ -38,7 +39,7 @@ class ProjectItem{
 
     update(updateProjectListsFn, type) {
         this.updateProjectListsHandler = updateProjectListsFn;
-        this.connectSwitchButton();
+        this.connectSwitchButton(type);
     }
 }
 
@@ -51,7 +52,7 @@ class ProjectList{
         console.log(prjItems);
         for (const prjItem of prjItems) {
             this.projects.push(
-                new ProjectItem(prjItem.id, this.switchProject.bind(this))
+                new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)
 );
         }
         console.log(this.projects);
