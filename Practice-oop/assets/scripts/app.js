@@ -22,20 +22,21 @@ class ProjectItem{
 class ProjectList{
     projects = [];
 
-    constructor(type, switchHandlerFunction) {
+    constructor(type) {
         this.type = type;
-        this.switchHandler = switchHandlerFunction;
         const prjItems = document.querySelectorAll(`#${type}-projects li`);
         console.log(prjItems);
         for (const prjItem of prjItems) {
-            this.projects.push(new ProjectItem(prjItem.id));
+            this.projects.push(
+                new ProjectItem(prjItem.id, this.switchProject.bind(this))
+);
         }
         console.log(this.projects);
     }
 
-    addProject() {
+    addProject(project) {
         // Logic to add a new project
-        console.log(this);
+        this.projects.push(project);
     }   
 
     switchProject(projectId) {
