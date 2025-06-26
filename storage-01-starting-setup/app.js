@@ -10,14 +10,14 @@ const user = {
 
 
 storeBtn.addEventListener('click', () => {
-    localStorage.setItem('userId', userId);
+    sessionStorage.setItem('userId', userId);
     localStorage.setItem('user', JSON.stringify(user));
 });
 
 retrieveBtn.addEventListener('click', () => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
     console.log(storedUser);
-    localStorage.getItem('userId')
-        ? alert(`User ID: ${localStorage.getItem('userId')}`)
+    sessionStorage.getItem('userId')
+        ? alert(`User ID: ${sessionStorage.getItem('userId')}`)
         : alert('No user ID found!');
 });
