@@ -21,3 +21,5 @@ retrieveBtn.addEventListener('click', () => {
         ? alert(`User ID: ${sessionStorage.getItem('userId')}`)
         : alert('No user ID found!');
 });
+
+console.log(document.cookie);
