@@ -34,6 +34,7 @@ function trackUserHandler() {
     console.log(data);
   })
   .catch(err => {
+    console.log('Error occurred!');
     console.log(err);
   });
     console.log('Getting position...');
