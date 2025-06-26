@@ -8,6 +8,7 @@ function trackUserHandler() {
     error => {
       console.log(error);
     });
+    console.log('Getting position...');
 }
 
 button.addEventListener('click', trackUserHandler);
