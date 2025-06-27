@@ -1,4 +1,4 @@
-const customers = ['Max', 'Manuel', 'Anna'];
+const customers = ['Max', 'Manuel', 'Anna', 'Chris', 'Julia'];
 
 const activeCustomers = ['Max', 'Manuel'];
 
